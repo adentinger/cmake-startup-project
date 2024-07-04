@@ -9,4 +9,8 @@ project(foo
 # them did!
 enable_testing()
 
+# The default C++ version to use in all libraries/executables.
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 add_subdirectory(foo)
