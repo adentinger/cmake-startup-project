@@ -1,0 +1,162 @@
+# A description of how the code should be formatted using the clang-format
+# program.
+#
+# For a description of the options in this file, see:
+# See: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+#
+# To manually use this file, run a command like:
+#
+#     # Runs clang-format using this file on all sources inside the repo.
+#     clang-format --style=file:.clang-format -i $(find src test-common -type f '(' -name '*.cpp' -o -name '*.h' ')')
+
+BasedOnStyle: Google
+
+# The C++ standard version to consider
+Standard: c++17
+
+IndentWidth: 4
+
+# Every developer's heated debate question! This setting uses spaces.
+UseTab: Never
+TabWidth: 4
+
+# Access modifiers inside classes/structs are on the same column as the
+# e.g. "class" keyword.
+AccessModifierOffset: -4
+
+# Another heated debate. We like to boost the font size to be able to keep
+# our eyes for many years), but we realize that a tad more could also be fine.
+# By the way, '79' means that, when going to the end of the line, the column
+# number can go up to 80, or, in other words, the line may contain up to
+# 79 characters.
+ColumnLimit: 79
+
+# "int& foo", not "int &foo"
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+# Function declaration parameters and function call arguments should be one per
+# line if breaks need to be inserted. If function arguments or parameters do
+# not fit on the line, don't allow them to all be placed on the next line.
+BinPackParameters: false
+BinPackArguments: false
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+
+# Open parentheses, angle brackets and square brackets should have a line-break
+# after them if whatever comes after them doesn't fit in one line, and the
+# closing brace should have a line-break before it:
+#
+# void long_func_name(
+#     int a,
+#     int b
+# ) {
+#     some_function();
+# }
+#
+# The line-break before the closing brace really, really helps readability, in
+# comparison with 'AlwaysBreak' which doesn't and causes 'some_function();' to
+# appear on the line right after 'int b' and with the same level of
+# indentation.
+AlignAfterOpenBracket: BlockIndent
+
+# Adds quote separators to integer literals. This is only valid starting in
+# C++14.
+IntegerLiteralSeparator:
+  Binary: 8
+  Decimal: 3
+  Hex: 4
+
+# Always break before C++11 attribute (e.g. "[[nodiscard]]") so that they are
+# on their own line. Attributes are there for tooling and optimization support
+# and should not clutter readability.
+BreakAfterAttributes: Always
+# Braces similar to Stroustrup style, but don't break after function
+# definitions.
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterCaseLabel:      false
+  AfterClass:          false
+  AfterControlStatement: Never
+  AfterEnum:           false
+  AfterFunction:       false
+  AfterNamespace:      false
+  AfterStruct:         false
+  AfterUnion:          false
+  AfterExternBlock:    false
+  BeforeCatch:         true
+  BeforeElse:          true
+  BeforeLambdaBody:    false
+  # Applies to do-while loops.
+  BeforeWhile:         false
+  IndentBraces:        false
+  SplitEmptyFunction:  false
+  SplitEmptyRecord:    false
+  # Namespaces should generally not be empty, so if they are break the body.
+  SplitEmptyNamespace: true
+
+# Class inheritance bases are one per line, with any comma being aligned with
+# the colon of the first base.
+BreakInheritanceList: BeforeComma
+
+# Initializers in an init-list are one per line, with any comma being aligned
+# with the colon of the first member.
+PackConstructorInitializers: Never
+BreakConstructorInitializers: BeforeComma
+# Initializers in an init-list should be extra indented, otherwise it's hard
+# to distinguish the init-list from the first statement of the constructor.
+ConstructorInitializerIndentWidth: 8
+
+# "case" is on the same level as the "switch".
+IndentCaseLabels: false
+
+# Fancy whitespaces after the "#", but the "#" itself is always the first
+# character of the line.
+IndentPPDirectives: AfterHash
+
+# Defines the "categories" of includes and their order.
+IncludeCategories:
+  # For the Guideline Support Library:
+  # https://github.com/microsoft/GSL
+  - Regex: '^["<]gsl/'
+    Priority: 1000
+
+  - Regex: '^["<]boost/'
+    Priority: 1100
+
+  # GoogleTest stuff
+  - Regex: '^["<]gtest/'
+    Priority: 1200
+  - Regex: '^["<]gmock/'
+    Priority: 1300
+
+  # The headers for tests
+  - Regex: '^["<"]test/'
+    Priority: 11000
+
+  # Headers included with angle brackets, which do not contain a slash, and
+  # which are not matched above should be first after the main header because
+  # these tend to be system headers.
+  - Regex: '^<[^/]*$'
+    Priority: 100
+  # These headers do contain a slash but we know they are system headers, so we
+  # give them the same priority as above. See:
+  # https://unix.org/version3/apis/headers.html
+  - Regex: '^<(arpa|sys|net|netinet)/'
+    Priority: 100
+  # Other headers included with angle brackets are usually headers of libraries
+  # which we forgot to add a rule here for. Put all of them after the other
+  # library headers. Some of them, however, might actually be system headers
+  # (e.g. "#include <sys/mman.h>" if we had forgotten the other rule above)
+  - Regex: '^<'
+    Priority: 9999
+  # Headers included with double quotes and which are not matched above should
+  # be considered to be headers of the current project and should therefore be
+  # near the end.
+  - Regex: '^"'
+    Priority: 13000
+SortIncludes: CaseSensitive
+
+# Regex defining comments that should not be changed (e.g. moved to separate
+# lines, etc).
+CommentPragmas: ''
