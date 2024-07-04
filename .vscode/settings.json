@@ -1,0 +1,166 @@
+{
+	/////////////
+	// NOTE:
+	// For VSCode C/C++ integration to work, you must install the "C/C++"
+	// extension by Microsoft, which is in the VSCode extensions pane,
+	// The "CMake Tools" extension, also by Microsoft, is also useful
+	// although less important.
+	//
+	// You might need to change some of the settings here if they are not the
+	// same on your system (e.g. CMake path is different between Windows and
+	// Linux). Don't set these values here though; go to the command palette
+	// (CTRL+SHIFT+P) and choose "Preferences: Open Settings (UI)". Then,
+	// make sure you are in the "User" tab, so that you only change your local
+	// settings, rather than this file. Then, in the search bar, specify the
+	// name of the setting (e.g. "cmake.cmakePath") and change it
+	// appropriately.
+	/////////////
+	// REQUIRED *USER* SETTINGS (as explained above):
+	//
+	// - "cmake.cmakePath"
+	//   - Just point it to a recent cmake executable, e.g.
+	//     "${env:HOME}/cmake/bin/cmake" (.exe on Windows).
+	//
+	// - "C_Cpp.codeAnalysis.clangTidy.path"
+	//   - on both Linux and Windows, install the LLVM 16.0.0 release in a
+	//     global location (e.g. "$HOME/llvm"), then set this path to
+	//     "<your-llvm-install-dir>/bin/clang-tidy" (or
+	//     ".../clang-tidy.exe" on Windows). You can find the LLVM releases
+	//     here:
+	//     https://github.com/llvm/llvm-project/releases
+	//     The reason for specifically LLVM 16.0.0 is that clang-format (which
+	//     also comes with LLVM) doesn't always format code exactly the same
+	//     way accross versions, and we don't want to introduce noise in
+	//     projects' Git history, so just install that version for now.
+	//
+	// - "C_Cpp.clang_format_path"
+	//   - Same as "C_Cpp.codeAnalysis.clangTidy.path", but point it to
+	//     "<your-llvm-install-dir>/bin/clang-format" (or
+	//     ".../clang-format.exe" on Windows).
+	//
+	// - Also have a look at the c_cpp_properties.json file.
+	"cmake.configureArgs": [
+		"-DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE",
+		"-DCMAKE_CXX_STANDARD:STRING=17"
+	],
+	"C_Cpp.codeAnalysis.clangTidy.enabled": true,
+	"cmake.buildDirectory": "${workspaceFolder}/build",
+	"cmake.useCMakePresets": "auto",
+	"files.associations": {
+		"array": "cpp",
+		"atomic": "cpp",
+		"strstream": "cpp",
+		"bit": "cpp",
+		"*.tcc": "cpp",
+		"bitset": "cpp",
+		"cctype": "cpp",
+		"charconv": "cpp",
+		"chrono": "cpp",
+		"cinttypes": "cpp",
+		"clocale": "cpp",
+		"cmath": "cpp",
+		"compare": "cpp",
+		"complex": "cpp",
+		"concepts": "cpp",
+		"condition_variable": "cpp",
+		"cstdarg": "cpp",
+		"cstddef": "cpp",
+		"cstdint": "cpp",
+		"cstdio": "cpp",
+		"cstdlib": "cpp",
+		"cstring": "cpp",
+		"ctime": "cpp",
+		"cwchar": "cpp",
+		"cwctype": "cpp",
+		"deque": "cpp",
+		"list": "cpp",
+		"map": "cpp",
+		"set": "cpp",
+		"string": "cpp",
+		"unordered_map": "cpp",
+		"vector": "cpp",
+		"exception": "cpp",
+		"algorithm": "cpp",
+		"functional": "cpp",
+		"iterator": "cpp",
+		"memory": "cpp",
+		"memory_resource": "cpp",
+		"numeric": "cpp",
+		"optional": "cpp",
+		"random": "cpp",
+		"ratio": "cpp",
+		"source_location": "cpp",
+		"string_view": "cpp",
+		"system_error": "cpp",
+		"tuple": "cpp",
+		"type_traits": "cpp",
+		"utility": "cpp",
+		"rope": "cpp",
+		"fstream": "cpp",
+		"initializer_list": "cpp",
+		"iomanip": "cpp",
+		"iosfwd": "cpp",
+		"iostream": "cpp",
+		"istream": "cpp",
+		"limits": "cpp",
+		"mutex": "cpp",
+		"new": "cpp",
+		"numbers": "cpp",
+		"ostream": "cpp",
+		"semaphore": "cpp",
+		"shared_mutex": "cpp",
+		"span": "cpp",
+		"sstream": "cpp",
+		"stdexcept": "cpp",
+		"stop_token": "cpp",
+		"streambuf": "cpp",
+		"thread": "cpp",
+		"typeindex": "cpp",
+		"typeinfo": "cpp",
+		"variant": "cpp",
+		"format": "cpp",
+		"any": "cpp",
+		"forward_list": "cpp",
+		"ranges": "cpp",
+		"valarray": "cpp",
+		"span_ext": "cpp",
+		"unordered_set": "cpp",
+		"regex": "cpp",
+		"*.inc": "cpp",
+		"filesystem": "cpp",
+		"assert": "cpp",
+		"*.ipp": "cpp",
+		"xlocale": "cpp",
+		"xstring": "cpp",
+		"xutility": "cpp",
+		"csignal": "cpp",
+		"ios": "cpp",
+		"locale": "cpp",
+		"queue": "cpp",
+		"stack": "cpp",
+		"exceptions": "cpp",
+		"xthread": "cpp",
+		"xdebug": "cpp",
+		"xfacet": "cpp",
+		"xfunctional": "cpp",
+		"xhash": "cpp",
+		"xiosbase": "cpp",
+		"xlocbuf": "cpp",
+		"xlocinfo": "cpp",
+		"xlocmes": "cpp",
+		"xlocmon": "cpp",
+		"xlocnum": "cpp",
+		"xloctime": "cpp",
+		"xmemory": "cpp",
+		"xmemory0": "cpp",
+		"xrefwrap": "cpp",
+		"xstddef": "cpp",
+		"xtr1common": "cpp",
+		"xtree": "cpp",
+		"pointers": "cpp",
+		"string_span": "cpp",
+		"narrow": "cpp",
+		"*.def": "cpp",
+		"*.gen": "cpp"
+	}
+}

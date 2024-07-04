@@ -1,0 +1,7 @@
+/build/
+/install/
+
+# It's common to ignore IDE configuration in a user-global exclude file that is
+# not inside the repo, but in this case we've set it up in a more-or-less
+# dev-independant fashion, so let's not ignore it.
+!/.vscode/

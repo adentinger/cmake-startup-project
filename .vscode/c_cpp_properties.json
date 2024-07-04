@@ -1,0 +1,35 @@
+{
+    // To select the right configuration, in the command palette
+    // (CTRL+SHIFT+P), choose "C/C++: Select a Configuration..."
+    "configurations": [
+        {
+            "name": "Linux",
+            "defines": [],
+            // Install LLVM 16.0.0 via the LLVM GitHub release:
+            // https://github.com/llvm/llvm-project/releases
+            // The reason for specifically LLVM 16.0.0 is that clang-format
+            // (which also comes with LLVM) doesn't always format code exactly
+            // the same way accross versions, and we don't want to introduce
+            // noise in projects' Git history, so just install that version.
+            "compilerPath": "${env:HOME}/llvm/bin/clang",
+            "intelliSenseMode": "linux-clang-x64",
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        },
+        {
+            "name": "Windows",
+            "defines": [],
+            // Install LLVM 16.0.0 via the LLVM GitHub release:
+            // https://github.com/llvm/llvm-project/releases
+            // The reason for specifically LLVM 16.0.0 is that clang-format
+            // (which also comes with LLVM) doesn't always format code exactly
+            // the same way accross versions, and we don't want to introduce
+            // noise in projects' Git history, so just install that version.
+            "compilerPath": "C:/llvm/bin/clang.exe",
+            "intelliSenseMode": "windows-clang-x64",
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        }
+    ],
+    "version": 4
+}
