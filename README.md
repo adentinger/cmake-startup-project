@@ -10,7 +10,7 @@ Requirements:
 
 ```bash
 cd <this-dir>
-${CMAKE_DIR}/bin/cmake -S . -B build -G "<generator>" -DCMAKE_INSTALL_PREFIX:STRING="<this-dir>/install" -DCMAKE_BUILD_TYPE:STRING=Debug
+${CMAKE_DIR}/bin/cmake -S . -B build -G "<generator>" -DCMAKE_INSTALL_PREFIX:STRING="<this-dir>/install" -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
 ${CMAKE_DIR}/bin/cmake --build build -j10 --config Debug
 ${CMAKE_DIR}/bin/ctest --test-dir build --build-config Debug -j10
 ${CMAKE_DIR}/bin/cmake --install build --config Debug
