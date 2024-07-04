@@ -5,4 +5,8 @@ project(foo
   HOMEPAGE_URL "https://github.com/adentinger/cmake-startup-project"
   LANGUAGES CXX)
 
+# So that CTest doesn't fail. If we have 0 tests and 0 tests pass, then all of
+# them did!
+enable_testing()
+
 add_subdirectory(foo)
