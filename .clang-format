@@ -7,7 +7,7 @@
 # To manually use this file, run a command like:
 #
 #     # Runs clang-format using this file on all sources inside the repo.
-#     clang-format --style=file:.clang-format -i $(find src test-common -type f '(' -name '*.cpp' -o -name '*.h' ')')
+#     clang-format --style=file:.clang-format -i $(find -type f '(' -name '*.cpp' -o -name '*.h' -o -name '*.hpp' ')')
 
 BasedOnStyle: Google
 
