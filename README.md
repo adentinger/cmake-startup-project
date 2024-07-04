@@ -16,4 +16,4 @@ cd <this-dir>
 <CMAKE_DIR>/bin/cmake --install build --config Debug
 ```
 
-Then, on Linux, run `./install/foo` to run the program. On Windows, run `install/foo.exe` to run it.
+Then, on Linux, run `./install/bin/foo` to run the program. On Windows, run `install/bin/foo.exe` to run it.
