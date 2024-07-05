@@ -1,13 +1,14 @@
 # A description of how the code should be formatted using the clang-format
-# program.
-#
-# For a description of the options in this file, see:
-# See: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+# program. Inside some IDEs like VSCode, the currently-open C/C++ source/header
+# can be formatted using a keybinding, such as as CTRL+SHIFT+I .
 #
 # To manually use this file, run a command like:
 #
 #     # Runs clang-format using this file on all sources inside the repo.
 #     clang-format --style=file:.clang-format -i $(find -type f '(' -name '*.cpp' -o -name '*.h' -o -name '*.hpp' ')')
+#
+# For a description of the options in this file, see:
+# See: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 
 BasedOnStyle: Google
 
