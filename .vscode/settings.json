@@ -22,16 +22,12 @@
 	//     "${env:HOME}/cmake/bin/cmake" (.exe on Windows).
 	//
 	// - "C_Cpp.codeAnalysis.clangTidy.path"
-	//   - on both Linux and Windows, install the LLVM 16.0.0 release in a
-	//     global location (e.g. "$HOME/llvm"), then set this path to
+	//   - on both Linux and Windows, install an LLVM release in a
+	//     global location (e.g. "$HOME/dev-data/llvm"), then set this path to
 	//     "<your-llvm-install-dir>/bin/clang-tidy" (or
 	//     ".../clang-tidy.exe" on Windows). You can find the LLVM releases
 	//     here:
 	//     https://github.com/llvm/llvm-project/releases
-	//     The reason for specifically LLVM 16.0.0 is that clang-format (which
-	//     also comes with LLVM) doesn't always format code exactly the same
-	//     way accross versions, and we don't want to introduce noise in
-	//     projects' Git history, so just install that version for now.
 	//
 	// - "C_Cpp.clang_format_path"
 	//   - Same as "C_Cpp.codeAnalysis.clangTidy.path", but point it to
