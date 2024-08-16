@@ -2,6 +2,8 @@
 
 An ultra-basic CMake project for when I want to quickly test something outside existing projects. For a (much) more capable CMake setup, see [this other project of mine](https://github.com/adentinger/CMakeBestPractices).
 
+Consider simply using use the famous [Compiler Explorer](https://godbolt.org/) instead of this project if all you care about is to quickly try a C++ code construct inside a single .cpp file. Unlike the Compiler Explorer, this project is meant to look like a "real" project that you build using CMake, which means you can have multiple .cpp/.h/.hpp files if you want to, you can test if you've installed the C++ tools correctly on your machine, etc.
+
 ## Usage
 
 Requirements:
